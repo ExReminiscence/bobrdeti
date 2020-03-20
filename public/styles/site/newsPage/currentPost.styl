@@ -1,0 +1,280 @@
+.postCard{
+    margin: 110px 0 37px 0;
+}
+/*-------------------------------------*/
+.currentPost{
+    background: #FFFFFF;
+}
+.currentPost table {
+    width: 100% !important;
+    margin-left: 0;
+}
+.currentPost__imgBlock{
+    height: auto;
+    margin: 0 0 45px 0;
+}
+.currentPost__imgBlock img{
+    width: 100%;
+    height: 100%;
+}
+.currentPost_thisCategory{
+    width: 100%;
+    padding: 15px;
+    height: auto;
+}
+.currentPost_thisCategory a{
+    font-weight: 600;
+    color: #FEBF14;
+    font-size: 12px;
+}
+.currentPost__contentBlock__name,.currentPost__contentBlock__cost {
+    font-size:25px;
+    font-weight: 600;
+    color: #000000;
+    padding: 0px 15px 25px 15px;
+    margin:0;
+}
+.currentPost__contentBlock__name{
+    padding-top: 20px;
+}
+
+.currentPost__contentBlock__desc{
+    font-size: 15px;
+    color: #000000;
+    padding: 0px 15px 43px 15px;
+}
+.currentPost__contentBlock__desc table {
+    width: 100% !important;
+    margin-left: 0;
+}
+.postDatepostAuth{
+    padding: 0px 25px 0 25px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    font-weight: 600;
+}
+.currentPost__contentBlock__ocenka{
+    padding: 0px 15px 24px 15px;
+}
+.currentPost__contentBlock__ocenka__name,.currentPost__contentBlock__ocenka__count{
+    font-size: 15px;
+    color: #B9B9B9;
+    margin:0;
+    padding: 2px 0 5px 0px;
+}
+.currentPost__contentBlock__ocenka__starDiv{
+    padding: 0 14px 0 14px;
+}
+.currentPost__contentBlock__ocenka__starDiv__item{
+    color:#E7E9EC;
+    cursor: pointer;
+}
+.currentPost__contentBlock__ocenka__starDiv__item:hover{
+    color: #FEC628;
+}
+.currentPost__contentBlock__repost{
+    padding: 0 25px 30px 25px ;
+    align-items: center;
+}
+.currentPost__contentBlock__repost__repostButton{
+    padding: 0 14px 0 0;
+}
+.currentPost__contentBlock__repost__repostButton img{
+    width:22px;
+    height: 22px;
+    margin: 2px 0 0 0 ;
+}
+.currentPost__contentBlock__repost__repostButton__name{
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 0 5px 5px;
+    text-decoration: none;
+    margin 0
+}
+
+.currentPost__contentBlock__repost__social a img{
+    width:25px;
+    height: 25px;
+    margin: 0 5px 0 0;
+}
+.postDate{
+    float:right;
+}
+.postAuthor{
+    float:left;
+}
+/*--------------------------------------*/
+
+/*--------------------------------------*/
+.readAlso {
+    background: #FFFFFF;
+    margin: 30px 0 30px 0;
+}
+.readAlso__name{
+    font-size:20px;
+    font-weight: 600;
+    color: #000000;
+    padding: 24px 0 15px 14px;
+}
+
+.readAlso__item{
+
+    color:black;
+}
+
+.readAlso__item_div{
+  padding-bottom: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.readAlso__item_a{
+  color:#FEBF14;
+}
+
+.readAlso__item_a:hover{
+  text-decoration: underline;
+}
+/*-------------------------------------*/
+
+.lastPost{
+    background: #FEFEFE;
+}
+.lastPost__name{
+    padding: 24px 15px 25px 15px;
+    font-size: 20px;
+    font-weight: 600;
+    margin:0;
+}
+.lastPost__mainBlock{
+  padding 0 10px
+}
+.lastPost__item{
+    width:33%;
+    min-height: 250px;
+    height: auto;
+    background: #FFFFFF;
+    margin: 20px 8px 0 0;
+}
+.lastPost__item:last-child{
+    margin-right: 0;
+}
+.lastPost__item__img{
+    width: 100%;
+    padding: 5px;
+    height: auto;
+}
+.lastPost__item__imgAva{
+    width: 20%;
+    padding: 5px;
+    height: 60px;
+}
+.lastPost__item__name{
+    font-size:20px;
+    font-weight: 600;
+    color: #000000;
+    padding: 5px 5px 15px 5px;
+    text-align center
+}
+
+.ya-share2__badge{
+    border-radius: 50% !important;
+    width: 30px;
+    height: 30px;
+}
+.ya-share2__container_size_m .ya-share2__icon{
+    width: 80% !important;
+    height: 80% !important;
+    margin: 10% 0 0 10%;
+}
+.instaHref{
+    height: 31px;
+    margin: 0 0 0 5px;
+}
+/*-----------------------------------*/
+@media screen and (max-width: 767px){
+    .readAlso{
+        height: auto;
+    }
+    .postDate{
+        float:left;
+        margin-top: 10px;
+    }
+    .postAuthor{
+        float:left;
+    }
+    .postDatepostAuth{
+        flex-direction: column;
+    }
+    .readAlso__item ,.readAlso__item a,.readAlso__item:last-child{
+        height: auto;
+    }
+    .currentPost__contentBlock__name{
+        font-size:25px;
+        font-weight: 600;
+        color: #000000;
+        padding: 30px 25px 25px 25px;
+        margin:0;
+    }
+    .currentPost__contentBlock__desc{
+        font-size: 15px;
+        color: #000000;
+        padding: 0px 25px 30px 25px;
+    }
+    .currentPost__contentBlock__desc img,.currentPost__contentBlock__desc video,#player,.currentPost__contentBlock__desc iframe{
+        width: 100%;
+        height: auto;
+    }
+    .currentPost__contentBlock__repost{
+        width: 100%;
+        margin-top: 20px;
+        padding: 0 25px 30px 25px ;
+    }
+    .currentPost__contentBlock__ocenka__left{
+        flex-direction: column;
+    }
+    .lastPost__name{
+        padding-left: 20px;
+    }
+
+    .lastPost__mainBlock{
+        flex-direction: column;
+    }
+    .lastPost__item{
+        width:90%;
+        margin:5%;
+        height: 320px;
+        background: #FFFFFF;
+    }
+
+    .lastPost__item__img{
+        width: 100%;
+        padding: 5px;
+        height: 268px;
+    }
+
+    .lastPost__item__name{
+        font-size:15px;
+        font-weight: 600;
+        color: #000000;
+        padding: 13px 0 25px 5px;
+    }
+    .lastPost__mainBlock{
+        margin-bottom: 50px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px){
+    .lastPost__mainBlock{
+        margin-bottom: 50px;
+    }
+    .currentPost__contentBlock__desc img,.currentPost__contentBlock__desc video,#player,.currentPost__contentBlock__desc iframe{
+        width: 100%;
+        height: auto;
+    }
+}

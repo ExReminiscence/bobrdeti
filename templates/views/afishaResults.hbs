@@ -1,0 +1,192 @@
+<section class="afishaPage">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 afishaPage__content">
+              <div class="allEvent" >
+                <a href="/afisha" ><i style="padding-right:10px;" class="fa fa-chevron-left" aria-hidden="true"></i>Все мероприятия</a>
+              </div>
+                <div class="col-lg-12 afishaPage__content__category" >
+
+                    <ul class="afishaPage__content__category__spis d-flex">
+                        <li class="afishaPage__content__category__spis__li"><a class="afishaPage__content__category__spis__a" href="/afisha">Все актуальные</a><img src="/img/vipad2.png" class="vipad-img afisha__img" alt="">
+                          <ul class="afishaPage__content__category__spis__a__sub">
+                            {{#each data.afisharubrics}}
+                            <li class="afishaPage__content__category__spis__a__sub__li">
+                              <a class="afishaPage__content__category__spis__a__sub__li__link" href="/afisha/{{key}}">{{name}}</a>
+                            </li>
+                            {{/each}}
+                          </ul>
+                        </li>
+                        <li><a class="afishaPage__content__category__spis__a" href="/dosug">Досуг с детьми</a></li>
+                        <li><a class="afishaPage__content__category__spis__a" href="/output">Выходные</a></li>
+                        <li><a class="afishaPage__content__category__spis__a" href="#">Выбрать дату</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12 afishaPage__content__posts d-flex">
+                  {{#if data.date.results}}
+                  <div class="findOnDate" >
+                    <h5>Найдено по дате</h5>
+                  </div>
+                  {{#each data.date.results}}
+                  <div class=" afishaPage__content__posts__item ">
+                        <div class="afishaPage__content__posts__item__img" style="background: url({{#if image.secure_url}}{{{image.secure_url}}}{{else}}/img/fonafisha.webp{{/if}}) center center no-repeat;background-size: cover;">
+                          {{#if section}}
+                          <div class="afishaPage__content__posts__item__category">
+                              <h2 class="afishaPage__content__posts__item__category__name">{{section}}</h2>
+                          </div>
+                          {{/if}}
+                      </div>
+                      <div class="afishaPage__content__posts__item__content">
+                          <h2 class="afishaPage__content__posts__item__content__name">
+                              <a href="{{postUrl slug}}">{{{title}}}</a>
+                          </h2>
+                          <div class="afishaPage__content__posts__item__content__content" >
+                            {{#if kratkoe}}
+                              {{kratkoe}}
+                            {{else}}
+                              {{{content}}}
+                            {{/if}}
+                          </div>
+
+                      </div>
+                  </div>
+                  {{/each }}
+                  {{else}}
+                  <div class="eventNotFound" >
+                    <h5 class="noresult__title">К сожалению по вашему запросу ничего не найдено, попробуйте выбрать другой день</h5>
+                    <div class="tcalendar" style="display: block;">
+                      <div class="form-group" style="margin-top: 50px;display: flex;justify-content: center;">
+                        <form role="afisha" action="/afishaResults" method="get" class="" style="width:305px;display: flex;flex-direction: column;align-items: center;">
+                          <input type="hidden" name="action" value="afishaDate">
+                          <div class="form-group">
+                              <!-- элемент input с id = datetimepicker1 -->
+                              <div class="input-group" id="datetimepicker1">
+                                <input name="keywords" style="background:#fff;border-right:1px solid #ccc;" type="text" class="form-control input-group-addon" required placeholder="Выберите дату"/>
+                                <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                              </div>
+                            </div>
+                          <input class="afisha__search__input" type="submit" name="" value="Поиск">
+                        </form>
+                      </div>
+                  </div>
+                  </div>
+                    {{/if}}
+                </div>
+
+                <div class="tcalendar" style="display: none;">
+                  <div class="form-group" style="margin-top: 100px;display: flex;justify-content: center;">
+                    <form role="afisha" action="/afishaResults" method="get" class="" style="width:305px;display: flex;flex-direction: column;align-items: center;">
+                      <input type="hidden" name="action" value="afishaDate">
+                      <div class="form-group">
+                          <!-- элемент input с id = datetimepicker1 -->
+                          <div class="input-group" id="datetimepicker1">
+                            <input name="keywords" style="background:#fff;border-right:1px solid #ccc;" type="text" class="form-control input-group-addon" required placeholder="Выберите дату"/>
+                            <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                          </div>
+                        </div>
+                      <input class="afisha__search__input" type="submit" name="" value="Поиск">
+                    </form>
+                  </div>
+              </div>
+            </div>
+            <div class="col-lg-3 afishaPage__reklama">
+              <div class="reklamaBlock">
+
+                <!-- Yandex.RTB R-A-484761-1 -->
+                <div id="yandex_rtb_R-A-484761-1"></div>
+                <!-- Yandex.RTB R-A-484761-2 -->
+                <div id="yandex_rtb_R-A-484761-2"></div>
+                <script type="text/javascript">
+                    (function(w, d, n, s, t) {
+                        w[n] = w[n] || [];
+                        w[n].push(function() {
+                            Ya.Context.AdvManager.render({
+                                blockId: "R-A-484761-2",
+                                renderTo: "yandex_rtb_R-A-484761-2",
+                                async: true
+                            });
+                        });
+                        t = d.getElementsByTagName("script")[0];
+                        s = d.createElement("script");
+                        s.type = "text/javascript";
+                        s.src = "//an.yandex.ru/system/context.js";
+                        s.async = true;
+                        t.parentNode.insertBefore(s, t);
+                    })(this, this.document, "yandexContextAsyncCallbacks");
+                </script>
+                <div class="" style="margin-top:10px;">
+                  {{#each reklama}}
+                  <a target="_blank" href="{{{content}}}">
+                      <img src="{{{image.secure_url}}}" class="reklamaBlock-img" alt="reklamaBlock">
+                  </a>
+                  {{/each}}
+                </div>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container" style="margin-bottom:20px;">
+
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+var afishaPage__content__category__spis__a = document.querySelectorAll('.afishaPage__content__category__spis__a');
+var afishaPage__content__posts = document.querySelector('.afishaPage__content__posts');
+var pagAfisha = document.querySelector('.pagAfisha');
+var tcalendar = document.querySelector('.tcalendar');
+var tcalendar2 = document.querySelector('.tcal');
+var $spans = $('.afishaPage__content__posts span');
+var tcalGrid = document.querySelector('#tcalGrid');
+var btn = document.querySelector('#btn');
+
+for (let i = 0; i < afishaPage__content__category__spis__a.length; i++) {
+   afishaPage__content__category__spis__a[i].onclick = () => {
+     if (afishaPage__content__category__spis__a[i].innerText == 'Досуг с детьми') {
+       tcalendar.style.display = 'none';
+       pagAfisha.style.display = 'none';
+       afishaPage__content__category__spis__a[1].style.color = "#FEBF14";
+       afishaPage__content__category__spis__a[0].style.color = "#03a9f4";
+       afishaPage__content__category__spis__a[2].style.color = "#03a9f4";
+       afishaPage__content__category__spis__a[3].style.color = "#03a9f4";
+     }else if (afishaPage__content__category__spis__a[i].innerText == 'Выходные'){
+       tcalendar.style.display = 'none';
+       pagAfisha.style.display = 'none';
+       afishaPage__content__category__spis__a[1].style.color = "#03a9f4";
+       afishaPage__content__category__spis__a[0].style.color = "#03a9f4";
+       afishaPage__content__category__spis__a[2].style.color = "#FEBF14";
+       afishaPage__content__category__spis__a[3].style.color = "#03a9f4";
+     }else if (afishaPage__content__category__spis__a[i].innerText == 'Выбрать дату'){
+       tcalendar.style.display = 'block';
+       afishaPage__content__posts.innerHTML = '';
+       afishaPage__content__category__spis__a[1].style.color = "#03a9f4";
+       afishaPage__content__category__spis__a[0].style.color = "#03a9f4";
+       afishaPage__content__category__spis__a[2].style.color = "#03a9f4";
+       afishaPage__content__category__spis__a[3].style.color = "#FEBF14";
+
+     }else{
+     }
+   }
+}
+
+
+
+for (let i = 0; i < $spans.length; i++) {
+  var spans = $spans[i];
+  console.log(spans);
+  btn.onclick = () => {
+   if (spans == tcalendar2.value) {
+     console.log(spans);
+
+    tcalendar.style.display = 'none';
+  }else{
+    console.log(spans);
+  }
+ }
+}
+</script>

@@ -1,0 +1,12 @@
+<section class="aboutPage">
+  <div class="container">
+    {{#each about}}
+    <div class="col-lg-12 aboutImgDiv" style="background: url('{{{image.secure_url}}}') center center no-repeat; background-size: contain;">
+    </div>
+    <div class="col-lg-12 aboutText" >
+        <h2 class="aboutText-name">О проекте:</h2>
+        {{{content}}}
+    </div>
+    {{/each}}
+  </div>
+</section>

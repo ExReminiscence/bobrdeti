@@ -1,0 +1,110 @@
+<section class="boardSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 boardPage__left">
+                <h2 class="boardPage__left__name">Доска объявлений</h2>
+                <div class="col-lg-12 d-flex boardPage__left__menuDiv">
+                    <ul class="boardPage__left__menuDiv__menu d-flex">
+                        <li class="boardPage__left__menuDiv__menu__item"><a href="">Продам</a></li>
+                        <li class="boardPage__left__menuDiv__menu__item"><a href="">Купить</a></li>
+                        <li class="boardPage__left__menuDiv__menu__item"><a href="">Меняю</a></li>
+                        <li class="boardPage__left__menuDiv__menu__item"><a href="">Барахолка</a></li>
+                        <li class="boardPage__left__menuDiv__menu__item"><a href="">Благотворительность</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12 boardPage__left__content">
+                    {{#each data.posts.results}}
+                    {{#if board}}
+                    <div class="boardPage__left__content__item">
+                        <div class="d-flex board__item">
+                            {{#if image}}
+                            <div class="boardPage__left__content__item__img">
+                                <img src="{{{image.secure_url}}}" alt="">
+                            </div>
+                            {{/if}}
+                            <div class="boardPage__left__content__item__info">
+                                <div class="boardPage__left__content__info">
+                                    <div class="d-flex name__cost">
+                                        <h2 class="boardPage__left__content__info__name"><a href="{{postUrl slug}}">{{title}}</a></h2>
+                                        <div class="boardPage__left__content__info__cost">{{{cost}}}</div>
+                                    </div>
+
+                                    <div class="boardPage__left__content__info__desc">
+                                        {{{content}}}
+                                    </div>
+
+                                    <p  class="boardPage__left__content__info__date">{{moment publishedDate "weekday"}} {{time}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                    <div class="col-lg-4 offset-lg-4">
+                        {{>pagination}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 boardPage__right">
+                <div class="boardPage__right__content">
+                    <div class="boardPage__right__categories">
+                        <h2 class="boardPage__right__categories__name">Все категории</h2>
+                        <ul class="boardPage__right__categories__menu">
+                            {{#each data.boardrubrics}}
+                            <li class="boardPage__right__categories__menu__item"><a href="{{boardrubricsUrl key}}">{{{name}}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="boardPage__right__cost">
+                        <h2 class="boardPage__right__cost__name">Цена</h2>
+                        <div class="d-flex boardPage__right__cost__field">
+                            <input type="text" min="1" placeholder="От" id="minCost" onchange="costFilter()">
+                            <input type="text" max="10000" placeholder="До" id="maxCost" onchange="costFilter()">
+                        </div>
+                    </div>
+                    <div class="boardPage__right__filter">
+                        <input type="radio" name="h" id="rad1"><label for="rad1">Любое</label>
+                        <input type="radio" name="h" id="rad2"><label for="rad2">Новое</label>
+                        <input type="radio" name="h" id="rad3"><label for="rad3">Б/У</label>
+                    </div>
+                </div>
+
+                <div class="reklamaBlock">
+                  <!-- Yandex.RTB R-A-484761-1 -->
+                  <div id="yandex_rtb_R-A-484761-1"></div>
+                  <!-- Yandex.RTB R-A-484761-2 -->
+                  <div id="yandex_rtb_R-A-484761-2"></div>
+                  <script type="text/javascript">
+                      (function(w, d, n, s, t) {
+                          w[n] = w[n] || [];
+                          w[n].push(function() {
+                              Ya.Context.AdvManager.render({
+                                  blockId: "R-A-484761-2",
+                                  renderTo: "yandex_rtb_R-A-484761-2",
+                                  async: true
+                              });
+                          });
+                          t = d.getElementsByTagName("script")[0];
+                          s = d.createElement("script");
+                          s.type = "text/javascript";
+                          s.src = "//an.yandex.ru/system/context.js";
+                          s.async = true;
+                          t.parentNode.insertBefore(s, t);
+                      })(this, this.document, "yandexContextAsyncCallbacks");
+                  </script>
+                  <div class="" style="margin-top:10px;">
+                    {{#each reklama}}
+                    <a target="_blank" href="{{{content}}}">
+                        <img src="{{{image.secure_url}}}" class="reklamaBlock-img" alt="reklamaBlock">
+                    </a>
+                    {{/each}}
+                  </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<div class="container" style="margin:20px 0;">
+
+</div>

@@ -1,0 +1,14 @@
+<div class="container gallerySection">
+	<h1 style="font-weight: bold;color:#03a9f4;">Галерея</h1>
+
+	<div class="gallery__row">
+		{{#each galleries}}
+			<div class="gallery__col" onclick="location.href = '/gallery/{{key}}'">
+				<div class="gallery__col__backFoto" style="background-image: url({{image.secure_url}});"></div>
+				<div class="gallery__col__title">
+					<h4 class="gallery__col__title__h4">{{name}}</h4>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>

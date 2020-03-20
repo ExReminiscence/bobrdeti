@@ -1,0 +1,152 @@
+<section class="articlePage">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9  newsPage__events">
+                    <h1 class="newsPage__events__name">Статьи</h1>
+                    {{#if data.category}}
+                      <h2 class="newsPage__events__categoryname">{{data.category.name}}</h2>
+                    {{/if}}
+                    <div class="articlePage__left__menuDiv">
+                        <ul class="articlePage__left__menuDiv__menu d-flex">
+                            <li class="articlePage__left__menuDiv__menu__item ">
+                                <a href="#" class="d-flex choiceArticle ARTICLE__HREF">
+                                    <h2 class="ARTICLE__HREF__h2">Выбрать категорию</h2>
+                                    <img src="/img/vipad2.png"  alt="">
+                                </a>
+                            </li>
+                            <ul class="articlePage-ChoiceMenu">
+                              <li style="padding-bottom: 10px;">
+                                  <div class="d-flex">
+                                      <a href="/article" class="open-ChoiceMenu-SecondMenu">Все категории</a>
+                                  </div>
+                              </li>
+                                {{#each data.categories}}
+                                <li style="padding-bottom: 10px;">
+                                    <div class="d-flex">
+                                        <a href="{{categoryUrlarticle key}}" class="open-ChoiceMenu-SecondMenu">{{name}}</a>
+                                        <div class="arrow-rghtMenu2">
+                                        <a href="#" >
+                                            {{#if subcategories}}
+                                            <img style="margin-left:10px;"  src="https://img.icons8.com/ios-filled/15/000000/expand-arrow.png">
+                                            {{/if}}
+                                        </a>
+                                        </div>
+
+
+                                    </div>
+                                    <ul class="mainPage-content-right-RghtMenu-Second2" style="display: none;">
+                                        {{#each subcategories}}
+                                        <li style="margin-top:10px;"><a style="color:#757575;" href="{{subcategoryUrl ../key key}}">{{{name}}}</a></li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                                {{/each}}
+                            </ul>
+                            <li class="articlePage__left__menuDiv__menu__item"><a href="/new" class="ARTICLE__HREF">Новые статьи</a></li>
+                            <li class="articlePage__left__menuDiv__menu__item"><a href="/popular" class="ARTICLE__HREF">Популярные запросы</a></li>
+                        </ul>
+                    </div>
+                    <div class="articlePage__left__content d-flex">
+                        {{#each data.posts.results}}
+                        {{#if articl}}
+                        <div class="articlePage__left__content__item">
+                            <div class="articlePage__left__content__item__img ">
+                                {{#if image.secure_url}}
+                                <a style="height:167px;" href="{{postUrl slug}}"><img src="{{{image.secure_url}}}"></a>
+                                {{/if}}
+                            </div>
+
+                            <h2 style="margin-top:0;padding-top:0;" class="articlePage__left__content__item__name"><a href="{{postUrl slug}}">{{{title}}}</a></h2>
+                            <div class="articlePage__left__content__item__desc">
+                              {{#if kratkoe}}
+                                {{kratkoe}}
+                              {{else}}
+                                {{{content}}}
+                              {{/if}}
+                            </div>
+
+                            {{#each categories}}
+                            <div class="article__postCategories">
+                                <a href="/article/{{key}}">{{name}}</a>
+                            </div>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                        {{/each}}
+
+                    </div>
+
+                    <div class="col-lg-4 offset-lg-4 articlePagination">
+                        {{>pagination}}
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 newsPage__rubrics">
+                    <div class="reklamaBlock articleReklama">
+                      <div class="" style="margin-top:10px;">
+                        {{#each reklama}}
+                        <a target="_blank" href="{{{content}}}">
+                            <img src="{{{image.secure_url}}}" class="reklamaBlock-img" alt="reklamaBlock">
+                        </a>
+                        {{/each}}
+                      </div>
+                      <!-- Yandex.RTB R-A-484761-1 -->
+                      <div id="yandex_rtb_R-A-484761-1"></div>
+                      <!-- Yandex.RTB R-A-484761-2 -->
+                      <div id="yandex_rtb_R-A-484761-2"></div>
+                      <script type="text/javascript">
+                          (function(w, d, n, s, t) {
+                              w[n] = w[n] || [];
+                              w[n].push(function() {
+                                  Ya.Context.AdvManager.render({
+                                      blockId: "R-A-484761-2",
+                                      renderTo: "yandex_rtb_R-A-484761-2",
+                                      async: true
+                                  });
+                              });
+                              t = d.getElementsByTagName("script")[0];
+                              s = d.createElement("script");
+                              s.type = "text/javascript";
+                              s.src = "//an.yandex.ru/system/context.js";
+                              s.async = true;
+                              t.parentNode.insertBefore(s, t);
+                          })(this, this.document, "yandexContextAsyncCallbacks");
+                      </script>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" style="margin-bottom:20px;">
+
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    var arrow_rghtMenu2 = document.querySelectorAll('.arrow-rghtMenu2');
+    var RghtMenu_Second2 = document.querySelectorAll('.mainPage-content-right-RghtMenu-Second2');
+
+
+
+    for (let i = 0; i < arrow_rghtMenu2.length; i++) {
+
+      arrow_rghtMenu2[i].onclick = () => {
+
+        if (RghtMenu_Second2[i].style.display == 'block') {
+          RghtMenu_Second2[i].style.display = 'none';
+          arrow_rghtMenu2[i].style.transform = 'rotate(0deg)';
+        }else {
+          arrow_rghtMenu2[i].style.transform = 'rotate(180deg)';
+          RghtMenu_Second2[i].style.display = 'block';
+        }
+      }
+    }
+    var articlePagination = document.querySelector('.articlePagination');
+    if (document.location.pathname == '/article') {
+      articlePagination.style.display = "block";
+    };
+
+
+    </script>

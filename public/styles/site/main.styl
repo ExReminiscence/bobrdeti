@@ -1,0 +1,251 @@
+body,html
+  padding:0;
+  margin:0;
+  height: 100%;
+  width:100%;
+  background:#ebf9ff;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  overflow: visible;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+.showMenu
+  display:block;
+
+.zindex
+  z-index: 30;
+
+.overbackground
+  width:100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  padding: 0;
+  margin: 0;
+  -webkit-filter: brightness(50%);
+  position: absolute;
+
+.hidden
+  display : none;
+
+.mainPage-content-articles
+  display flex
+  flex-direction column
+
+.mainPage-content-left
+  display: flex;
+  flex-direction: column;
+
+input[type="checkbox"]:checked, input[type="checkbox"]:not(:checked), input[type="radio"]:checked, input[type="radio"]:not(:checked)
+  position: absolute;
+  left: -9999px;
+
+input[type="checkbox"]:checked + label, input[type="checkbox"]:not(:checked) + label, input[type="radio"]:checked + label, input[type="radio"]:not(:checked) + label
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  line-height: 20px;
+  cursor: pointer;
+
+input[type="radio"]:checked + label, input[type="radio"]:not(:checked) + label
+  display: block;
+
+input[type="checkbox"]:checked + label:before, input[type="checkbox"]:not(:checked) + label:before
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #969696;
+  background-color: none;
+
+input[type="radio"]:checked + label:before, input[type="radio"]:not(:checked) + label:before
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #191919;
+
+
+input[type="checkbox"]:checked + label:before, input[type="checkbox"]:not(:checked) + label:before
+  border-radius: 2px;
+
+
+input[type="checkbox"]:checked + label:before, input[type="checkbox"]:not(:checked) + label:before
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #dddddd;
+  background-color: none;
+
+input[type="radio"]:checked + label:before, input[type="radio"]:not(:checked) + label:before
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #060606;
+  background-color: none;
+
+input[type="checkbox"]:checked + label:before, input[type="checkbox"]:not(:checked) + label:before
+  border-radius: 2px;
+
+
+input[type="radio"]:checked + label:before, input[type="radio"]:not(:checked) + label:before
+  border-radius: 100%;
+
+
+
+
+input[type="checkbox"]:checked + label:after, input[type="checkbox"]:not(:checked) + label:after, input[type="radio"]:checked + label:after, input[type="radio"]:not(:checked) + label:after
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+
+
+input[type="checkbox"]:checked + label:after, input[type="checkbox"]:not(:checked) + label:after
+  left: 3px;
+  top: 4px;
+  width: 10px;
+  height: 8px;
+  border-radius: 1px;
+  border-left: 4px solid black;
+  border-bottom: 4px solid black;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+
+
+input[type="radio"]:checked + label:after, input[type="radio"]:not(:checked) + label:after
+  left: 4px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: black;
+
+input[type="checkbox"]:not(:checked) + label:after, input[type="radio"]:not(:checked) + label:after
+  opacity: 0;
+
+
+input[type="checkbox"]:checked + label:after, input[type="radio"]:checked + label:after
+  opacity: 1;
+
+
+.buttonUp
+  width:70px;
+  padding: 15px 0 20px 0;
+  height: 70px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #FEBF14;
+  text-align: center;
+  font-size:25px;
+  cursor:pointer;
+  position: fixed;
+  bottom:150px;
+  right:40px;
+  z-index: 20;
+  transition: 200ms ease all;
+
+
+.buttonUp:hover
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+@media only screen and (max-width: 991px)
+  .buttonUp
+    bottom: 15px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    padding: 8px;
+
+
+a:hover,h2 a:hover,a h2:hover,a p:hover,li a:hover
+  text-decoration: none;
+  color: #FEBF14;
+
+
+.articleBlockName>a
+  transition: 150ms ease all;
+
+
+.article:hover .articleBlockName>a
+  color: #FEBF14;
+
+.articlePage__left__content__item__img__a__img
+  transition all 0.7s ease
+
+.article:hover .articlePage__left__content__item__img__a__img
+  transform scale(1.1)
+
+.smallNews__a
+  position: absolute;
+  width: 100%;
+  margin-top: 30px;
+  height: 220px;
+  font-size: 17px;
+  color: #fff;
+  line-height: 22px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  font-weight: 600;
+  transition: 150ms ease all;
+
+
+.bigNews__a
+  position: absolute;
+  width: 100%;
+  height: 95%;
+  font-size: 25px;
+  color: #F8F4F3;
+  line-height: 32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-left: 15px;
+  padding-right: 20px;
+  font-weight: 600;
+  transition: 150ms ease all;
+  bottom: 0;
+
+.bigNews__a:focus, .smallNews__a:focus
+  color: #febf14;
+
+.form-control:focus
+  border-color: #44a7a2;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(68, 167, 162, 0.5);
+
+.afisha__search__input
+  background rgba(3, 169, 244, 0.77)
+  color #fff
+  border none
+  outline none
+  width: 150px;
+  height: 34px;
+  transition: 200ms linear all;
+
+.afisha__search__input:hover, .afisha__search__input:focus
+  background #fff
+  color rgba(3, 169, 244, 0.77)
+  box-shadow: 0 0 15px rgba(3, 169, 244, 0.5)

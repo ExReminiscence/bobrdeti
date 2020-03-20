@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>{{title}}</title>
+		<meta name="description" content="{{#if desctiption}}{{desctiption}}{{else}}BobrDeti.by – это место, где мы старались собрать всё, что пригодится мамам, папам и детям, а также бабушкам и дедушкам. Это сайт о нас с вами, то есть о тех, кому важно детство.{{/if}}">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144804994-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-144804994-1');
+		</script>
+		<meta property="og:locale" content="ru_RU">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Бобр Дети - Портал Бобруйска для всей семьи">
+		<meta property="og:description" content="BobrDeti.by – это место, где мы старались собрать всё, что пригодится мамам, папам и детям, а также бабушкам и дедушкам. Это сайт о нас с вами, то есть о тех, кому важно детство.">
+		<meta property="og:url" content="https://bobrdeti.by/">
+		<meta property="og:image" content="https://bobrdeti.by/img/logo.png">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link href="/styles/site.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+		<meta name="yandex-verification" content="1b08715a1c2a30d4" />
+		<meta name="google-site-verification" content="J_S3ghNQxrC6DgcsLtQ9wOrdZ7nhLpl5evpwar55msY" />
+		<script data-ad-client="ca-pub-6636788620742177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+		{{{isAdminEditorCSS user}}}
+		<!--
+		Developer by: Rusetskiy Andrei, Mike Zhukovskiy
+	-->
+	</head>
+
+	<body>
+		<header>
+			<div id="menu-button" role="button" title="sweet hamburger">
+				<div class="hamburger">
+					<div class="inner"></div>
+				</div>
+			</div>
+			<div class="container menuMainDiv">
+				<div class="row" style="height: 100%">
+					<div class="col-lg-3 col-md-3 col-sm-6 header-logo">
+						<a href="/"><img src="/img/logo.png" class="img-fluid header-logo-img" alt="logo"></a>
+
+					</div>
+
+					<div class="col-lg-9 col-sm-12 col-md-9">
+						<div class="row header-rightBlock">
+							<ul class="header-menu d-flex">
+								<li><a href="/about">О проекте</a></li>
+								<li class="news__menu"><a href="/news">Новости</a>
+									<div class="news__default__fade">
+										<div class="news__default__container">
+											<div class="news__default__col__first">
+											{{#each postCategoryMenu}}
+
+												<p><a href="/news/{{key}}">{{{name}}}</a></p>
+
+											{{/each}}
+											</div>
+											<div class="news__default__col__last">
+												<div class="news__default__col__last__item__top">
+													{{#each othernewsmenu}}
+														<div class="menu__header__item" onclick="location.href = '{{postUrl slug}}'">
+															<div class="menu__header__image">
+																<img class="news__default__col__last__item__top__img" src="{{{image.secure_url}}}" alt="">
+															</div>
+
+															<p class="news__default__col__last__item__top__title">{{title}}</p>
+														</div>
+
+
+													{{/each}}
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</li>
+								<li><a href="/afisha">Афиша</a></li>
+								<li><a href="/usefull">Полезные адреса</a></li>
+								<li>
+									<div class="d-flex ARTICLE">
+									<a href="/article" class="articleHref">Статьи</a>
+									<div class="vipad">
+										<img src="/img/vipad2.png" class="vipad-img" alt="">
+									</div>
+									</div>
+								</li>
+								<li><a href="" class="header-search"><img class="header-search__icon" src="/img/search.png" alt="search"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="header-menu-articleMenu">
+					<div class="header-menu-articleMenu__arrow">
+						<img src="/img/menuarrow.png" alt="">
+					</div>
+					<div class="d-flex header-menu-articleMenu__content">
+						<div class="header-menu-articleMenu__left">
+							{{#each postCategory1}}
+							<a href="{{categoryUrlarticle key}}">{{name}}</a>
+							{{/each}}
+						</div>
+						<div class="header-menu-articleMenu__center">
+							{{#each postCategory2}}
+							<a href="{{categoryUrlarticle key}}">{{name}}</a>
+							{{/each}}
+						</div>
+						<div class="header-menu-articleMenu__right">
+							{{#each postCategory3}}
+							<a href="{{categoryUrlarticle key}}">{{name}}</a>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+				<form class="menuSearch" role="search" action="/search" method="GET">
+					<div class="menuSearchDiv d-flex">
+						<input type="text" id="keywords" name="keywords" style="padding-left: 5px;padding-right: 5px;">
+						<button type="submit">Поиск</button>
+					</div>
+				</form>
+			</div>
+
+		</header>
+
+		<div id="body">
+
+			{{#if messages}}
+			<div id="flash-messages" class="container">
+				{{#if messages.info}}
+				<div class="alert alert-info">
+						{{{flashMessages messages.info}}}
+				</div>
+				{{/if}}
+				{{#if messages.success}}
+				<div class="alert alert-success">
+						{{{flashMessages messages.success}}}
+				</div>
+				{{/if}}
+				{{#if messages.warning}}
+				<div class="alert alert-warning">
+						{{{flashMessages messages.warning}}}
+				</div>
+				{{/if}}
+				{{#if messages.error}}
+				<div class="alert alert-danger">
+						{{{flashMessages messages.error}}}
+				</div>
+				{{/if}}
+			</div>
+			{{/if}}
+
+			{{{body}}}
+		</div>
+
+		<footer>
+			<div class="top-footer">
+				<div class="container ">
+					<div class="row ">
+						<div class="col-lg-4 top-footer__container">
+							<div class="col-lg-12 top-footer__container__item">
+								<div class="col-lg-8 footer__rightInfo__title" style="margin-bottom:10px;"><h3>Дополнительно</h3></div>
+								<div class="footer__rightInfo__title__line"></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/gallery">Галерея</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/contacts">Контакты</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/rules">Правила использования</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/map">Карта сайта</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/information">Правовая информация</a></div>
+							</div>
+							<div class="col-lg-12 top-footer__container__item">
+								<div class="col-lg-8 footer__rightInfo__title" style="margin-bottom:10px;"><h3>Меню</h3></div>
+								<div class="footer__rightInfo__title__line"></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/about">О проекте</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/news">Новости</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/afisha">Афиша</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/usefull">Полезные адреса</a></div>
+								<div class="col-lg-8 footer__rightInfo" style="margin-bottom:10px;"><a href="/article">Статьи</a></div>
+
+							</div>
+						</div>
+
+						<div class="col-lg-4 offset-lg-4 footer__right">
+							<div class="d-flex" style="align-items: center;margin-bottom:10px;">
+								<div class="col-lg-2 col-md-2 col-sm-2 footer-right-img" style="padding:0"><img src="/img/mail.png" alt=""></div>
+								<div class="col-lg-10 col-md-10 col-sm-10" style="padding-right: 0; text-align: right;">
+									<h2 class="footer-right-name">Подписаться на новости</h2>
+								</div>
+							</div>
+
+							<form class="d-flex" method="post">
+								<input type="hidden" name="action" value="subscription">
+								<div class="col-lg-7 col-sm-7 col-md-7" style="padding:0">
+									<input type="text" placeholder="Введите ваш Email" name="subscriber" class="footer-inp">
+								</div>
+								<div class="col-lg-5 col-sm-5 col-md-5 footer-podpiskaObnovDiv">
+									<button style="outline: none;border: none; width: 100%;" type="submit" href="#" class="footer-podpiskaObnov">Подписаться</button>
+								</div>
+							</form>
+							<div class="social">
+								{{#each social}}
+								<div class="social__img"><a href="{{{address}}}"><img src="{{{image.secure_url}}}" style="width: 27px;height: 27px;" alt="{{{name}}}"></a></div>
+								{{/each}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-footer">
+				<div class="container">
+					<div class="d-flex footer__link__default">
+						<div class="col-lg-4">
+							<p class="bottom-footer-desc">
+								© All rights reserved. 2020 BobrDeti.by. Создание сайта artbrain.by
+							</p>
+
+						</div>
+						<a target="_blank" class="idiplom__link" href="https://i-diplom.by/">Курсовые, дипломные, контрольные работы на заказ - https://i-diplom.by</a>
+					</div>
+				</div>
+			</div>
+
+		</footer>
+		<script type="text/javascript">
+	    (function(w, d, n, s, t) {
+	        w[n] = w[n] || [];
+	        w[n].push(function() {
+	            Ya.Context.AdvManager.render({
+	                blockId: "R-A-484761-1",
+	                renderTo: "yandex_rtb_R-A-484761-1",
+	                async: true
+	            });
+	        });
+	        t = d.getElementsByTagName("script")[0];
+	        s = d.createElement("script");
+	        s.type = "text/javascript";
+	        s.src = "//an.yandex.ru/system/context.js";
+	        s.async = true;
+	        t.parentNode.insertBefore(s, t);
+	    })(this, this.document, "yandexContextAsyncCallbacks");
+		</script>
+
+		<script src="/js/jquery/jquery-2.1.4.min.js"></script>
+		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ru.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+		<script>
+		  $(function () {
+		    $('#datetimepicker1').datetimepicker({
+					format: 'YYYY-MM-DD'
+				});
+				$('.glyphicon-remove').click(function () {
+            $('#datetimepicker1').data("DateTimePicker").clear();
+        });
+		  });
+
+			$('.afishaIndex__container').slick({
+			  infinite: true,
+			  slidesToShow: 4,
+			  slidesToScroll: 4,
+				prevArrow: $('.prev__index__afish'),
+				nextArrow: $('.next__index__afish'),
+				dots: true,
+				responsive: [
+			    {
+			      breakpoint: 1024,
+			      settings: {
+			        slidesToShow: 2,
+			        slidesToScroll: 2,
+			        infinite: true,
+			        dots: true
+			      }
+			    },
+			    {
+			      breakpoint: 600,
+			      settings: {
+			        slidesToShow: 2,
+			        slidesToScroll: 2,
+			      }
+			    },
+			    {
+			      breakpoint: 480,
+			      settings: {
+			        slidesToShow: 1,
+			        slidesToScroll: 1,
+			      }
+			    }
+			  ]
+			});
+		</script>
+		<!-- Yandex.Metrika counter -->
+		<script type="text/javascript" >
+		   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		   ym(54614581, "init", {
+		        clickmap:true,
+		        trackLinks:true,
+		        accurateTrackBounce:true,
+		        webvisor:true
+		   });
+		</script>
+		<noscript><div><img src="https://mc.yandex.ru/watch/54614581" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		<!-- /Yandex.Metrika counter -->
+
+		<script src="/script/arcticle-vipad.js" type="text/javascript"></script>
+		<script src="/script/rghtMenu-second-active.js" type="text/javascript"></script>
+		<script src="/script/menu.js" type="text/javascript"></script>
+		<script src="/script/usefullMenu.js" type="text/javascript"></script>
+		<script src="/script/searchMenu.js" type="text/javascript"></script>
+		<script src="/script/afishaScript.js" type="text/javascript"></script>
+		<script src="/script/scrollTop.js" type="text/javascript"></script>
+		<script src="/script/headerSearch.js" type="text/javascript"></script>
+		<script src="/script/loadMoreArticle.js" type="text/javascript"></script>
+		<script src="/script/articleDescFormat.js" type="text/javascript"></script>
+		<script src="/script/readAlso.js" type="text/javascript"></script>
+		<script src="/script/boardFilter.js" type="text/javascript"></script>
+		<script src="/script/usefullScripts.js" type="text/javascript"></script>
+		<script src="/script/bigNewsSmallNews.js" type="text/javascript"></script>
+		<script src="/script/newsScript.js" type="text/javascript"></script>
+		<script src="/script/galleryOpen.js" type="text/javascript"></script>
+		{{{isAdminEditorJS user}}}
+		<script type="text/javascript">
+	    (function(w, d, n, s, t) {
+	        w[n] = w[n] || [];
+	        w[n].push(function() {
+	            Ya.Context.AdvManager.render({
+	                blockId: "R-A-484761-5",
+	                renderTo: "yandex_rtb_R-A-484761-5",
+	                async: true
+	            });
+	        });
+	        t = d.getElementsByTagName("script")[0];
+	        s = d.createElement("script");
+	        s.type = "text/javascript";
+	        s.src = "//an.yandex.ru/system/context.js";
+	        s.async = true;
+	        t.parentNode.insertBefore(s, t);
+	    })(this, this.document, "yandexContextAsyncCallbacks");
+		</script>
+		<script>
+		$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+	      event.preventDefault();
+	      $(this).ekkoLightbox();
+	  });
+
+
+
+
+
+			/*----------------------------------BOARD MENU FILTER---------------------------------*/
+
+			$(".search__block__item__desc__content").text(function (i, text) {
+				if (text.length >= 350) {
+					text = text.substring(0, 350);
+					var lastIndex = text.lastIndexOf(" ");
+					text = text.substring(0, lastIndex) + ' ...';
+				}
+				$(this).text(text);
+			});
+
+			$(".lastPost__item__name").text(function (i, text) {
+				if (text.length >= 45) {
+					text = text.substring(0, 45);
+					var lastIndex = text.lastIndexOf(" ");
+					text = text.substring(0, lastIndex) + ' ...';
+				}
+				$(this).text(text);
+			});
+
+			var arrow_rghtMenu = document.querySelectorAll('.arrow-rghtMenu');
+			var RghtMenu_Second = document.querySelectorAll('.mainPage-content-right-RghtMenu-Second');
+
+			for (let i = 0; i < arrow_rghtMenu.length; i++) {
+				arrow_rghtMenu[i].onclick = () => {
+					if (RghtMenu_Second[i].style.display == 'block') {
+						RghtMenu_Second[i].style.display = 'none';
+						arrow_rghtMenu[i].style.transform = 'rotateX(0deg)';
+					}else {
+						arrow_rghtMenu[i].style.transform = 'rotateX(180deg)';
+						RghtMenu_Second[i].style.display = 'block';
+					}
+				}
+			}
+
+			$(document).ready(function(){
+
+				 initLetItSnow();
+				});
+
+				var initLetItSnow = function(){
+
+				 (function() {
+				 var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
+				 function(callback) {
+				 window.setTimeout(callback, 1000 / 60);
+				 };
+				 window.requestAnimationFrame = requestAnimationFrame;
+				 })();
+
+				 var flakes = [],
+				 canvas = document.getElementById("xmas"),
+				 ctx = canvas.getContext("2d"),
+				 mX = -100,
+				 mY = -100;
+
+				 if( $(window).width() < 999 ){
+				 var flakeCount = 125;
+				 } else {
+				 var flakeCount = 450;
+				 }
+
+				 canvas.width = window.innerWidth;
+				 canvas.height = window.innerHeight;
+
+				 function snow() {
+				 ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+				 for (var i = 0; i < flakeCount; i++) {
+				 var flake = flakes[i],
+				 x = mX,
+				 y = mY,
+				 minDist = 250,
+				 x2 = flake.x,
+				 y2 = flake.y;
+
+				 var dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)),
+				 dx = x2 - x,
+				 dy = y2 - y;
+
+				 if (dist < minDist) {
+				 var force = minDist / (dist * dist),
+				 xcomp = (x - x2) / dist,
+				 ycomp = (y - y2) / dist,
+				 deltaV = force;
+
+				 flake.velX -= deltaV * xcomp;
+				 flake.velY -= deltaV * ycomp;
+
+				 } else {
+				 flake.velX *= .98;
+				 if (flake.velY <= flake.speed) {
+				 flake.velY = flake.speed
+				 }
+				 flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
+				 }
+
+				 ctx.fillStyle = "rgba(255,255,255," + flake.opacity + ")";
+				 flake.y += flake.velY;
+				 flake.x += flake.velX;
+
+				 if (flake.y >= canvas.height || flake.y <= 0) {
+				 reset(flake);
+				 }
+
+				 if (flake.x >= canvas.width || flake.x <= 0) {
+				 reset(flake);
+				 }
+
+				 ctx.beginPath();
+				 ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+				 ctx.fill();
+				 }
+				 requestAnimationFrame(snow);
+				 };
+
+				 function reset(flake) {
+				 flake.x = Math.floor(Math.random() * canvas.width);
+				 flake.y = 0;
+				 flake.size = (Math.random() * 3) + 2;
+				 flake.speed = (Math.random() * 1) + 0.5;
+				 flake.velY = flake.speed;
+				 flake.velX = 0;
+				 flake.opacity = (Math.random() * 0.5) + 0.3;
+				 }
+
+				 function init() {
+				 for (var i = 0; i < flakeCount; i++) {
+				 var x = Math.floor(Math.random() * canvas.width),
+				 y = Math.floor(Math.random() * canvas.height),
+				 size = (Math.random() * 3) + 2,
+				 speed = (Math.random() * 1) + 0.5,
+				 opacity = (Math.random() * 0.5) + 0.3;
+
+				 flakes.push({
+				 speed: speed,
+				 velY: speed,
+				 velX: 0,
+				 x: x,
+				 y: y,
+				 size: size,
+				 stepSize: (Math.random()) / 160,
+				 step: 0,
+				 opacity: opacity
+				 });
+				 }
+
+				 snow();
+				 };
+
+				 canvas.addEventListener("mousemove", function(e) {
+				 mX = e.clientX,
+				 mY = e.clientY
+				 });
+
+				 window.addEventListener("resize",function(){
+				 canvas.width = window.innerWidth;
+				 canvas.height = window.innerHeight;
+				 })
+
+				 init();
+				};
+
+				if ($(window).width() > '995'){
+					$('.news__menu').hover(function () {
+						 clearTimeout($.data(this,'timer'));
+						 $('.news__default__fade').stop(true,true).fadeIn(200);
+					}, function () {
+						$.data(this,'timer', setTimeout($.proxy(function() {
+							$('.news__default__fade').stop(true,true).fadeOut(200);
+						}, this), 100));
+					});
+		    }
+
+
+
+		</script>
+
+	</body>
+</html>

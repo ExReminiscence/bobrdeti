@@ -1,0 +1,89 @@
+<section class="usefullAll">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 usefullAll__left">
+                <div class="usefullAllBlock">
+                  {{#if data.posts.results}}
+                    {{#each data.posts.results}}
+                    <div class="usefullAll__item">
+                        <div class="d-flex usefullAll__item__body">
+                            {{#if image}}
+                            <div class="usefullAll__item__img col-lg-4 col-md-6 col-sm-12">
+                                <img src="{{{image.secure_url}}}">
+                            </div>
+                            {{/if}}
+                            <div class="usefullAll__item__content col-lg-8 col-md-6 col-sm-12">
+                                <h2 class="usefullAll__item__content__name"><a href="{{postUrl slug}}">{{{title}}}</a></h2>
+                                <div class="usefullAll__item__content__desc">
+                                  {{#if kratkoe}}
+                                    {{kratkoe}}
+                                  {{else}}
+                                    {{{content}}}
+                                  {{/if}}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                      <h2>В данной категории нет рузультата</h2>
+                    {{/if}}
+                </div>
+                <div class="col-lg-4 offset-lg-4">
+                  {{#if data.posts.results}}
+                    {{>pagination}}
+                  {{/if}}
+                </div>
+            </div>
+
+            <div class="col-lg-3 usefullAll__right">
+                <div class="usefullAll__right__categories">
+                  <h5 style="padding: 15px;margin-bottom: 0;padding-bottom: 0;">Все категории</h5>
+                    <ul class="usefullAll__right__categories__menu">
+                        {{#each data.categories}}
+                          <li><a class="usefullAll__right__categories__menu__a" href="{{usefullUrl key}}">{{name}}</a></li>
+                            {{#each subcategorie}}
+                              <li style="    padding-top: 10px;padding-left: 20px;"><a class="usefullAll__right__categories__menu__a2" style="font-size:12px;" href="{{usefullUrl ../key}}/{{key}}">{{name}}</a></li>
+                            {{/each}}
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="reklamaBlock usefullreklama">
+                  <!-- Yandex.RTB R-A-484761-1 -->
+                  <div id="yandex_rtb_R-A-484761-1"></div>
+                  <!-- Yandex.RTB R-A-484761-2 -->
+                  <div id="yandex_rtb_R-A-484761-2"></div>
+                  <script type="text/javascript">
+                      (function(w, d, n, s, t) {
+                          w[n] = w[n] || [];
+                          w[n].push(function() {
+                              Ya.Context.AdvManager.render({
+                                  blockId: "R-A-484761-2",
+                                  renderTo: "yandex_rtb_R-A-484761-2",
+                                  async: true
+                              });
+                          });
+                          t = d.getElementsByTagName("script")[0];
+                          s = d.createElement("script");
+                          s.type = "text/javascript";
+                          s.src = "//an.yandex.ru/system/context.js";
+                          s.async = true;
+                          t.parentNode.insertBefore(s, t);
+                      })(this, this.document, "yandexContextAsyncCallbacks");
+                  </script>
+                  <div class="" style="margin-top:10px;">
+                    {{#each reklama}}
+                    <a target="_blank" href="{{{content}}}">
+                        <img src="{{{image.secure_url}}}" class="reklamaBlock-img" alt="reklamaBlock">
+                    </a>
+                    {{/each}}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container" style="margin-bottom:20px;">
+
+</div>

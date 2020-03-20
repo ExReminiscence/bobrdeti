@@ -1,0 +1,111 @@
+<section class="postCard">
+	<div class="container" >
+		<div class="row">
+			<div class="col-lg-9 " >
+				<div class="currentPost">
+
+					<h1 class="currentPost__contentBlock__name" >{{data.post.title}}</h1>
+					{{#each data.post.categories}}
+					<div class="currentPost_thisCategory">
+						<a href="/article/{{key}}">{{name}}</a>
+					</div>
+					{{/each}}
+					{{#if data.post.image.secure_url}}
+					<div class="currentPost__imgBlock">
+
+							<img src="{{{data.post.image.secure_url}}}">
+
+					</div>
+					{{/if}}
+					<div class="currentPost__contentBlock">
+						{{#if data.post.cost}}
+						<div class="currentPost__contentBlock__cost">
+							{{{data.post.cost}}}
+						</div>
+						{{/if}}
+						<div class="currentPost__contentBlock__desc">{{{data.post.content}}}</div>
+						{{#if data.post.code}}<div class="currentPost__contentBlock__desc">{{{data.post.code}}}</div>{{/if}}
+						<div class="postDatepostAuth" >
+							{{#if data.post.postAutor}}
+							 <span class="postAuthor">Автор: {{data.post.postAutor}}</span>
+							 {{/if}}
+						</div>
+					</div>
+					<div class="currentPost__contentBlock__repost d-flex">
+						<div class="currentPost__contentBlock__repost__repostButton d-flex">
+							<img src="/img/repost.png" alt="">
+							<h2 class="currentPost__contentBlock__repost__repostButton__name">Поделиться</h2>
+						</div>
+							<script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+							<script src="//yastatic.net/share2/share.js"></script>
+							<div class="d-flex">
+								<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,blogger,viber,whatsapp,skype,telegram,tumblr" data-title="{{data.post.title}}" data-description="{{data.post.kratkoe}}" data-image="{{{data.post.image.secure_url}}}" data-url="https://bobrdeti.by/{{data.post.slug}}"></div>
+							</div>
+					</div>
+				</div>
+				<div class="readAlso">
+					<h2 class="readAlso__name">Читайте также</h2>
+					{{#each readAlso}}
+					<div class="readAlso__item_div">
+							<div class="readAlso__item">
+								<div class="post__readAlso"><p>{{{content}}}</p></div>
+							</div>
+							<a class="readAlso__item_a" href="{{slug}}">Читать дальше</a>
+					</div>
+					{{/each}}
+				</div>
+				<div id="yandex_rtb_R-A-481825-2"></div>
+				<div class="lastPost" style="margin-top: 30px;">
+					<h2 class="lastPost__name">Популярное</h2>
+					<div class="d-flex lastPost__mainBlock">
+						{{#each posts}}
+							<div class="lastPost__item">
+								{{#if image.secure_url}}
+								<div class="lastPost__item__image" style="background-image:url({{{image.secure_url}}});"></div>
+
+					      {{else}}
+								<div class="lastPost__item__image" style="background-image:url(/img/fonimg.webp);"></div>
+					      {{/if}}
+								<a href="{{postUrl slug}}"><h2 class="lastPost__item__name">{{title}}</h2></a>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="reklamaBlock">
+					<div class="" style="">
+						{{#each reklama}}
+						<a target="_blank" href="{{{content}}}">
+								<img src="{{{image.secure_url}}}" class="reklamaBlock-img" alt="reklamaBlock">
+						</a>
+						{{/each}}
+					</div>
+					<!-- Yandex.RTB R-A-484761-1 -->
+					<div id="yandex_rtb_R-A-484761-1"></div>
+					<!-- Yandex.RTB R-A-484761-2 -->
+					<div id="yandex_rtb_R-A-484761-2"></div>
+					<script type="text/javascript">
+							(function(w, d, n, s, t) {
+									w[n] = w[n] || [];
+									w[n].push(function() {
+											Ya.Context.AdvManager.render({
+													blockId: "R-A-484761-2",
+													renderTo: "yandex_rtb_R-A-484761-2",
+													async: true
+											});
+									});
+									t = d.getElementsByTagName("script")[0];
+									s = d.createElement("script");
+									s.type = "text/javascript";
+									s.src = "//an.yandex.ru/system/context.js";
+									s.async = true;
+									t.parentNode.insertBefore(s, t);
+							})(this, this.document, "yandexContextAsyncCallbacks");
+					</script>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

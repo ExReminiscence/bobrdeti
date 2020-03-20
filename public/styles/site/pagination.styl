@@ -1,0 +1,32 @@
+.paginationAfish
+  display flex
+
+.paginationAfish li{
+    margin-left:10px;
+    list-style: none;
+}
+.paginationAfish li a{
+    width:25px;
+    height: 25px;
+    display:block;
+}
+.paginationAfish > li > a, .pagination > li > span{
+    width:30px;
+    height:30px ;
+    border:1px solid black;
+    color:black;
+    font-size:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginationAfish > li.active{
+    background: black;
+    color:white;
+
+}
+.paginationAfish > li.active a{
+    color: white;
+    background #000
+}

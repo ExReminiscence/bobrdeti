@@ -1,0 +1,41 @@
+{{#each data.posts.results}}
+{{#if news}}
+<div itemscope itemtype="https://schema.org/NewsArticle" class="newsPage__events__item">
+  <div class="d-flex newsPage__events__item__body">
+    <div class="newsPage__events__item__img col-lg-4 col-md-6 col-sm-12" >
+      {{#if image.secure_url}}
+      <a href="{{postUrl slug}}"><div class="newsPage__events__item__img__link" style="background: url({{{image.secure_url}}}) center center no-repeat;background-size: cover;"></div></a>
+      {{else}}
+      <a href="{{postUrl slug}}"><img src="/img/fonimg.webp"></a>
+      {{/if}}
+    </div>
+    <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="url" content="https://bobrdeti.by">
+      <meta itemprop="name" content="Bobrdeti.by">
+      <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject" style="width:0;">
+          <img  itemprop="contentUrl" src="https://bobrdeti.by/img/logo.png" style="width:100%;" alt="Logo Svsites">
+          <meta itemprop="width" content="267">
+          <meta itemprop="height" content="44">
+          <meta itemprop="name" content="Bobrdeti.by">
+          <meta itemprop="url" content="https://bobrdeti.by/img/logo.png">
+      </div>
+    </div>
+    <div class="newsPage__events__item__content col-lg-8 col-md-6 col-sm-12" {{#if postAutor}}itemprop="author" content="{{postAutor}}"{{else}}itemprop="author" content="Bobr Deti"{{/if}}>
+      <h2 itemprop="headline" class="newsPage__events__item__content__name" style="line-height: 0.8;"><a itemprop="mainEntityOfPage" itemprop="url" href="{{postUrl slug}}">{{{title}}}</a></h2>
+      <div class="newsPage__events__item__content__desc" itemprop="description">
+        {{#if kratkoe}}
+          {{kratkoe}}
+        {{else}}
+          {{{content}}}
+        {{/if}}
+      </div>
+      <p class="newsPage__events__item__content__date" itemprop="datePublished" content="{{moment publishedDate}}">
+        <meta itemprop="dateModified" content="{{moment publishedDate}}">
+        {{moment publishedDate "DD MMMM YYYY"}}
+      </p>
+
+    </div>
+  </div>
+</div>
+{{/if}}
+{{/each}}

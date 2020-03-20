@@ -1,0 +1,106 @@
+<section class="newsPage">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 newsPage__popular">
+                    <h2 class="newsPage__popular__name">Популярные</h2>
+                    {{#each blog}}
+                      {{#if news}}
+                      <div class="newsPage__popular__item" >
+                        <div class="">
+                          {{#if image.secure_url}}
+                          <a href="{{postUrl slug}}"><img style="width:100%;" src="{{{image.secure_url}}}"></a>
+                          {{else}}
+                          <a href="{{postUrl slug}}"><img style="width:100%;" src="/img/fonimg.webp"></a>
+                          {{/if}}
+                        </div>
+                          <h2 class="popular__news__title">{{title}}</h2>
+                          <a href="{{postUrl slug}}" >Перейти...</a>
+                      </div>
+                      {{/if}}
+                    {{/each}}
+                </div>
+                <div class="col-lg-7 newsPage__events">
+                    <h1 class="newsPage__events__todayNews">Новости</h1>
+                    <div class="">
+                      {{>newsPolitra}}
+                    </div>
+
+                    <div class="col-lg-4 offset-lg-4 pagin__newsPage__events">
+                        {{>pagination}}
+                    </div>
+                    <style>
+
+                    </style>
+                </div>
+
+                <div class="col-lg-3 newsPage__rubrics">
+                    <div class="newsPage__rubricsBlock">
+                        <h2 class="newsPage__rubricsBlock__name">Выбрать рубрику</h2>
+                        <ul class="newsPage__rubricsBlock__spis">
+                          <li class="newsPage__rubricsBlock__spis__li ">
+                              <label for="Все рубрики"> <a id="activeNews" href="/news">Все новости</a> </label>
+                          </li>
+                            {{#each data.categories}}
+                            {{#eq ../data.category.id id}}
+                            <li class="newsPage__rubricsBlock__spis__li">
+                                <label for="{{{name}}}"> <a style="color:#FEBF14;" href="/news/{{key}}">{{{name}}}</a> </label>
+                            </li>
+                            {{else}}
+                            <li class="newsPage__rubricsBlock__spis__li">
+                                <label for="{{{name}}}"> <a href="/news/{{key}}">{{{name}}}</a> </label>
+                            </li>
+                            {{/eq}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="reklamaBlock">
+                      <div class="" style="margin-top:10px;">
+                        {{#each reklama}}
+                        <a target="_blank" href="{{{content}}}">
+                            <img src="{{{image.secure_url}}}" class="reklamaBlock-img" alt="reklamaBlock">
+                        </a>
+                        {{/each}}
+                      </div>
+                      <!-- Yandex.RTB R-A-484761-1 -->
+                      <div id="yandex_rtb_R-A-484761-1"></div>
+                      <!-- Yandex.RTB R-A-484761-2 -->
+                      <div id="yandex_rtb_R-A-484761-2"></div>
+                      <script type="text/javascript">
+                          (function(w, d, n, s, t) {
+                              w[n] = w[n] || [];
+                              w[n].push(function() {
+                                  Ya.Context.AdvManager.render({
+                                      blockId: "R-A-484761-2",
+                                      renderTo: "yandex_rtb_R-A-484761-2",
+                                      async: true
+                                  });
+                              });
+                              t = d.getElementsByTagName("script")[0];
+                              s = d.createElement("script");
+                              s.type = "text/javascript";
+                              s.src = "//an.yandex.ru/system/context.js";
+                              s.async = true;
+                              t.parentNode.insertBefore(s, t);
+                          })(this, this.document, "yandexContextAsyncCallbacks");
+                      </script>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:20px;">
+
+        </div>
+        <div class="buttonUp" id="topScroll">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </section>
+    <script type="text/javascript">
+
+    var activeNews = document.querySelector('#activeNews');
+
+    if (location.pathname == '/news') {
+      activeNews.style.color = '#FEBF14'
+    }
+    </script>
