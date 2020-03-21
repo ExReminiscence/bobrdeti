@@ -19,6 +19,7 @@ exports = module.exports = function (req, res) {
 	};
 
 	locals.title = 'О проекте';
+	
 
 	view.on('init', function (next) {
 		var q = Post.model.find({
