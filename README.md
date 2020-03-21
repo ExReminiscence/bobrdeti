@@ -1,2 +1,0 @@
-# momportal
-FTP Momportal
