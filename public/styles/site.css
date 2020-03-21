@@ -7054,7 +7054,8 @@ a:focus {
   margin-left: -250px;
   box-shadow: 0px 17px 14px -8px rgba(0,0,0,0.45);
 }
-.news__default__fade {
+.news__default__fade,
+.article__default__fade {
   display: none;
 }
 .news__default__col__first {
@@ -7108,6 +7109,7 @@ a:focus {
 }
 .menu__header__item {
   margin-right: 10px;
+  width: 260px;
 }
 .menu__header__item:last-child {
   margin-right: 0;
@@ -7488,6 +7490,16 @@ header {
   position: fixed;
   z-index: 1010;
 }
+.search__header {
+  height: 80px;
+  background: #fff;
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1011;
+  display: none;
+}
 .header-logo a {
   display: block;
   width: 100%;
@@ -7500,6 +7512,10 @@ header {
 }
 .header-rightBlock {
   padding: 25px 0 25px 40px;
+}
+.search__header__close {
+  cursor: pointer;
+  margin-right: 10px;
 }
 .header-menu,
 .header-menu-articleMenu {
@@ -7580,37 +7596,49 @@ header {
   text-decoration: none;
   color: #febf14;
 }
+.search__header__container {
+  display: flex;
+  height: 80px;
+  align-items: center;
+}
 .menuSearch {
   height: 40px;
   background: #fff;
   padding: 0;
-  border-radius: none;
+  border-radius: 30px;
   outline: none;
   padding: 5px;
-  position: absolute;
-  top: 100px;
-  right: 22%;
-  display: none;
+  width: 99%;
 }
 .menuSearchDiv {
   height: 100%;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 .menuSearchDiv input {
   border: 1px solid #febf14;
   outline: none;
-  width: 70%;
-  height: 100%;
-  border-radius: 0;
+  width: 50%;
+  border-radius: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 40px;
+}
+.search__header__image {
+  width: 32px;
+}
+.menuSearchDiv input::placeholder {
+  color: rgba(194,194,194,0.702);
+  font-weight: 500;
 }
 .menuSearchDiv button {
-  width: 30%;
-  height: 100%;
-  color: #fff;
   border: none;
   border-radius: 0;
-  background: #febf14;
   text-align: center;
+  background: none;
+  margin-left: -45px;
+  margin-top: -2px;
 }
 .menuSearchDiv button:focus,
 .menuSearchDiv button:active {
@@ -9458,6 +9486,9 @@ li a:hover {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     font-size: 14px;
+  }
+  .slick-dots {
+    top: 250px;
   }
   .index__header__form__search__btn__img {
     width: 30px;

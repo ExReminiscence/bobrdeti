@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var Post = keystone.list('Post');
 
 exports = module.exports = function (req, res) {
 
@@ -21,6 +22,30 @@ exports = module.exports = function (req, res) {
 
 			locals.othernewsmenu = results;
 
+			next(err);
+		});
+	});
+
+	view.on('init', function (next) {
+		var q = Post.model.find({
+			hotnews: false,
+			state: 'Опубликовать',
+			news: false,
+			afisha: false,
+			articl: true
+		}).sort('-publishedDate').limit(3);
+		q.exec(function (err, results) {
+
+			locals.otherarticlsmenu = results;
+
+			next(err);
+		});
+	});
+
+	view.on('init', function (next) {
+
+		keystone.list('PostCategory').model.find().exec(function (err, result) {
+			locals.data.categorymenu = result;
 			next(err);
 		});
 	});

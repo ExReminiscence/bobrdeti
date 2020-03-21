@@ -95,10 +95,32 @@ exports = module.exports = function (req, res) {
 	});
 
 	view.on('init', function (next) {
-		var q = Post.model.find().where('news', true).where('hotnews', false).where('state', 'Опубликовать').sort('-publishedDate').populate('rubrics').skip(4).limit(3);
+		var q = Post.model.find({
+			hotnews: false,
+			state: 'Опубликовать',
+			news: true,
+			afisha: false,
+			articl: false
+		}).sort('-publishedDate').skip(4).limit(3);
 		q.exec(function (err, results) {
 
 			locals.othernewsmenu = results;
+
+			next(err);
+		});
+	});
+
+	view.on('init', function (next) {
+		var q = Post.model.find({
+			hotnews: false,
+			state: 'Опубликовать',
+			news: false,
+			afisha: false,
+			articl: true
+		}).sort('-publishedDate').limit(3);
+		q.exec(function (err, results) {
+
+			locals.otherarticlsmenu = results;
 
 			next(err);
 		});
@@ -190,28 +212,25 @@ exports = module.exports = function (req, res) {
 
 	});
 
+	// Load the current category filter
+	view.on('init', function (next) {
+
+		keystone.list('PostCategory').model.find().exec(function (err, result) {
+			locals.data.categorymenu = result;
+			next(err);
+		});
+	});
+
 	// Load the posts
 	view.on('init', function (next) {
 
 		var datenow = moment().format('YYYY-MM-DD');
 
-		var q = keystone.list('Post').paginate({
-			page: req.query.page || 1,
-			perPage: 32,
-			maxPages: 5,
-			filters: {
-				state: 'Опубликовать',
-				afisha: true,
-				meetDate: {"$gt": datenow}
-			}
-		})
-			.sort('meetDate')
-			.populate('sectionAfisha');
-
-			if (locals.data.afisharubric) {
-				q.where('sectionAfisha').in([locals.data.afisharubric]);
-			}
-
+		var q = keystone.list('Post').model.find({
+			state: 'Опубликовать',
+			afisha: true,
+			meetDate: datenow
+		}).populate('sectionAfisha');
 
 		q.exec(function (err, results) {
 			locals.data.afishaIndex = results;

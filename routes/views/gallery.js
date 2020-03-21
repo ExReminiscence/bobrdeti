@@ -2,6 +2,7 @@ var keystone = require('keystone');
 var API_KEY = 'e491b43abbd935ff964373593a96a985-87cdd773-8b0b2e85';
 var DOMAIN = 'sandboxfe36e0fc9e28432c9464d3f52a713b5b.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: API_KEY, domain: DOMAIN});
+var Post = keystone.list('Post');
 
 exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
@@ -22,6 +23,30 @@ exports = module.exports = function (req, res) {
 
 			locals.othernewsmenu = results;
 
+			next(err);
+		});
+	});
+
+	view.on('init', function (next) {
+		var q = Post.model.find({
+			hotnews: false,
+			state: 'Опубликовать',
+			news: false,
+			afisha: false,
+			articl: true
+		}).sort('-publishedDate').limit(3);
+		q.exec(function (err, results) {
+
+			locals.otherarticlsmenu = results;
+
+			next(err);
+		});
+	});
+
+	view.on('init', function (next) {
+
+		keystone.list('PostCategory').model.find().exec(function (err, result) {
+			locals.data.categorymenu = result;
 			next(err);
 		});
 	});

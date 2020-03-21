@@ -28,6 +28,22 @@ exports = module.exports = function (req, res) {
 	};
 	locals.formData = req.body;
 
+	view.on('init', function (next) {
+		var q = Post.model.find({
+			hotnews: false,
+			state: 'Опубликовать',
+			news: false,
+			afisha: false,
+			articl: true
+		}).sort('-publishedDate').limit(3);
+		q.exec(function (err, results) {
+
+			locals.otherarticlsmenu = results;
+
+			next(err);
+		});
+	});
+
 	view.query('reklama', keystone.list('Reklama').model.find().where('state', 'Опубликовать').sort('sort'));
 	view.query('social', keystone.list('Social').model.find());
 
@@ -37,6 +53,14 @@ exports = module.exports = function (req, res) {
 
 			locals.othernewsmenu = results;
 
+			next(err);
+		});
+	});
+
+	view.on('init', function (next) {
+
+		keystone.list('PostCategory').model.find().exec(function (err, result) {
+			locals.data.categorymenu = result;
 			next(err);
 		});
 	});

@@ -86,15 +86,36 @@
 								</li>
 								<li><a href="/afisha">Афиша</a></li>
 								<li><a href="/usefull">Полезные адреса</a></li>
-								<li>
-									<div class="d-flex ARTICLE">
-									<a href="/article" class="articleHref">Статьи</a>
-									<div class="vipad">
-										<img src="/img/vipad2.png" class="vipad-img" alt="">
-									</div>
+								<li class="article__menu"><a href="/article" class="articleHref">Статьи</a>
+
+									<div class="article__default__fade">
+										<div class="news__default__container">
+											<div class="news__default__col__first">
+											{{#each data.categorymenu}}
+
+												<p><a href="/article/{{key}}">{{{name}}}</a></p>
+
+											{{/each}}
+											</div>
+											<div class="news__default__col__last">
+												<div class="news__default__col__last__item__top">
+													{{#each otherarticlsmenu}}
+														<div class="menu__header__item" onclick="location.href = '{{postUrl slug}}'">
+															<div class="menu__header__image">
+																<img class="news__default__col__last__item__top__img" src="{{{image.secure_url}}}" alt="">
+															</div>
+
+															<p class="news__default__col__last__item__top__title">{{title}}</p>
+														</div>
+
+
+													{{/each}}
+												</div>
+											</div>
+										</div>
 									</div>
 								</li>
-								<li><a href="" class="header-search"><img class="header-search__icon" src="/img/search.png" alt="search"></a></li>
+								<li><a href="#" class="header-search"><img class="header-search__icon" src="/img/search.png" alt="search"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -123,15 +144,28 @@
 						</div>
 					</div>
 				</div>
-				<form class="menuSearch" role="search" action="/search" method="GET">
-					<div class="menuSearchDiv d-flex">
-						<input type="text" id="keywords" name="keywords" style="padding-left: 5px;padding-right: 5px;">
-						<button type="submit">Поиск</button>
-					</div>
-				</form>
 			</div>
 
 		</header>
+		<div class="search__header">
+			<div class="container search__header__container">
+				<form class="menuSearch" role="search" action="/search" method="GET">
+					<div class="menuSearchDiv d-flex">
+						<input type="text" id="keywords" name="keywords" placeholder="Поиск по сайту">
+						<button type="submit"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="30" height="30"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#febf14"><path d="M74.53333,17.2c-31.59642,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59642 25.73692,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09924,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59642 -25.73692,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39937,0 45.86667,20.4673 45.86667,45.86667c0,25.39937 -20.46729,45.86667 -45.86667,45.86667c-25.39937,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.4673,-45.86667 45.86667,-45.86667z"></path></g></g></svg></button>
+					</div>
+				</form>
+				<div class="search__header__close">
+					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="24" height="24"
+viewBox="0 0 172 172"
+style="fill:#000000;transform: rotate(45deg);"><g fill="none" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none" fill-rule="nonzero"></path><g fill="#000000" fill-rule="evenodd"><path d="M78.83333,14.33333v64.5h-64.5v14.33333h64.5v64.5h14.33333v-64.5h64.5v-14.33333h-64.5v-64.5z"></path></g></g></svg>
+				</div>
+			</div>
+		</div>
 
 		<div id="body">
 
@@ -324,7 +358,6 @@
 		<script src="/script/searchMenu.js" type="text/javascript"></script>
 		<script src="/script/afishaScript.js" type="text/javascript"></script>
 		<script src="/script/scrollTop.js" type="text/javascript"></script>
-		<script src="/script/headerSearch.js" type="text/javascript"></script>
 		<script src="/script/loadMoreArticle.js" type="text/javascript"></script>
 		<script src="/script/articleDescFormat.js" type="text/javascript"></script>
 		<script src="/script/readAlso.js" type="text/javascript"></script>
@@ -536,7 +569,25 @@
 					});
 		    }
 
+				if ($(window).width() > '995'){
+					$('.article__menu').hover(function () {
+						 clearTimeout($.data(this,'timer'));
+						 $('.article__default__fade').stop(true,true).fadeIn(200);
+					}, function () {
+						$.data(this,'timer', setTimeout($.proxy(function() {
+							$('.article__default__fade').stop(true,true).fadeOut(200);
+						}, this), 100));
+					});
+		    }
 
+				$('.header-search').click(function(e){
+					e.preventDefault();
+					$('.search__header').slideToggle();
+				});
+
+				$('.search__header__close').click(function(){
+					$('.search__header').slideToggle();
+				});
 
 		</script>
 
