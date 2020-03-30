@@ -2,8 +2,8 @@ var keystone = require('keystone');
 var async = require('async');
 var Post = keystone.list('Post');
 var moment = require('moment');
-var API_KEY = 'e491b43abbd935ff964373593a96a985-87cdd773-8b0b2e85';
-var DOMAIN = 'sandboxfe36e0fc9e28432c9464d3f52a713b5b.mailgun.org';
+var API_KEY = '486b068826a324a87963b1baaba339c4-f8faf5ef-61a4c0ca';
+var DOMAIN = 'sandbox5f184d85486a406fa79a2a7520007665.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: API_KEY, domain: DOMAIN});
 
 exports = module.exports = function (req, res) {
@@ -80,7 +80,7 @@ exports = module.exports = function (req, res) {
 
 			const mail = {
 	      from: 'Новый подписчик на bobrdeti.by <bobrdeti9@gmail.com>',
-	      to: 'bobrdeti9@gmail.com',
+	      to: 'info@bobrdeti.by',
 	      subject: 'Новый подписчик на bobrdeti.by',
 	      html:`
 	        <div style="display:block;">
