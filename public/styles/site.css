@@ -8465,6 +8465,10 @@ li a:hover {
     background: #fff;
     flex-direction: column;
   }
+  .paginationAfish {
+    justify-content: center;
+    margin-bottom: 40px;
+  }
   .afishaPage__content__category__spis li {
     width: 100%;
     padding: 0;
@@ -10359,6 +10363,12 @@ li a:hover {
     width: 100%;
     background: #fff;
     margin: 0 0 20px 0;
+  }
+  .newsPage__events {
+    order: -1;
+  }
+  .newsPage__popular {
+    margin: 15px;
   }
   .newsPage__events__item__img {
     padding: 7px;
