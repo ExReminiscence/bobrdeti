@@ -3,6 +3,7 @@ var API_KEY = '486b068826a324a87963b1baaba339c4-f8faf5ef-61a4c0ca';
 var DOMAIN = 'sandbox5f184d85486a406fa79a2a7520007665.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: API_KEY, domain: DOMAIN});
 var Post = keystone.list('Post');
+var moment = require('moment');
 
 exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
@@ -23,6 +24,24 @@ exports = module.exports = function (req, res) {
 
 			locals.othernewsmenu = results;
 
+			next(err);
+		});
+	});
+
+	view.query('afishaRubric', keystone.list('AfishaRubric').model.find().sort('name'));
+
+	view.on('init', function (next) {
+
+		var datenow = moment().format('YYYY-MM-DD');
+
+		var q = keystone.list('Post').model.find({
+			state: 'Опубликовать',
+			afisha: true,
+			meetDate: datenow
+		}).populate('sectionAfisha');
+
+		q.exec(function (err, results) {
+			locals.data.afishaIndex = results;
 			next(err);
 		});
 	});

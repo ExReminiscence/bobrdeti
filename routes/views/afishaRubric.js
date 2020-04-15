@@ -32,6 +32,24 @@ exports = module.exports = function (req, res) {
 	};
 	view.query('postCategoryMenu', keystone.list('Rubric').model.find());
 
+	view.query('afishaRubric', keystone.list('AfishaRubric').model.find().sort('name'));
+
+	view.on('init', function (next) {
+
+		var datenow = moment().format('YYYY-MM-DD');
+
+		var q = keystone.list('Post').model.find({
+			state: 'Опубликовать',
+			afisha: true,
+			meetDate: datenow
+		}).populate('sectionAfisha');
+
+		q.exec(function (err, results) {
+			locals.data.afishaIndex = results;
+			next(err);
+		});
+	});
+
 	view.on('init', function (next) {
 		var q = Post.model.find({
 			hotnews: false,

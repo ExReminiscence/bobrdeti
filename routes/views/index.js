@@ -37,6 +37,8 @@ exports = module.exports = function (req, res) {
 	view.query('postCategory1', keystone.list('PostCategory').model.find().sort('name').limit(3));
 	view.query('postCategory2', keystone.list('PostCategory').model.find().sort('name').skip(3).limit(3));
 	view.query('postCategory3', keystone.list('PostCategory').model.find().sort('name').skip(6).limit(3));
+
+	view.query('afishaRubric', keystone.list('AfishaRubric').model.find().sort('name'));
 	// Load all categories
 
 

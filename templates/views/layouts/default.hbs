@@ -31,6 +31,7 @@
 		<script data-ad-client="ca-pub-6636788620742177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+		<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" />
 		{{{isAdminEditorCSS user}}}
 		<!--
 		Developer by: Rusetskiy Andrei, Mike Zhukovskiy
@@ -84,7 +85,34 @@
 									</div>
 
 								</li>
-								<li><a href="/afisha">Афиша</a></li>
+								<li class="afisha__menu"><a href="/afisha">Афиша</a>
+									<div class="afisha__default__fade">
+										<div class="news__default__container">
+											<div class="news__default__col__first">
+											{{#each afishaRubric}}
+
+												<p><a href="/afisha/{{key}}">{{{name}}}</a></p>
+
+											{{/each}}
+											</div>
+											<div class="news__default__col__last">
+												<div class="afisha__default__col__slide">
+													{{#each data.afishaIndex}}
+														<div class="afisha__menu__header__item" onclick="location.href = '{{postUrl slug}}'">
+															<div class="menu__header__image">
+																<img class="news__default__col__last__item__top__img" src="{{{image.secure_url}}}" alt="">
+															</div>
+
+															<p class="news__default__col__last__item__top__title">{{title}}</p>
+														</div>
+
+
+													{{/each}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
 								<li><a href="/usefull">Полезные адреса</a></li>
 								<li class="article__menu"><a href="/article" class="articleHref">Статьи</a>
 
@@ -269,6 +297,7 @@ style="fill:#000000;transform: rotate(45deg);"><g fill="none" fill-rule="none" s
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ru.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+		<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
 		<script>
 		  $(function () {
@@ -431,6 +460,17 @@ style="fill:#000000;transform: rotate(45deg);"><g fill="none" fill-rule="none" s
 					});
 		    }
 
+				if ($(window).width() > '995'){
+					$('.afisha__menu').hover(function () {
+						 clearTimeout($.data(this,'timer'));
+						 $('.afisha__default__fade').stop(true,true).fadeIn(200);
+					}, function () {
+						$.data(this,'timer', setTimeout($.proxy(function() {
+							$('.afisha__default__fade').stop(true,true).fadeOut(200);
+						}, this), 100));
+					});
+		    }
+
 				$('.header-search').click(function(e){
 					e.preventDefault();
 					$('.search__header').slideToggle();
@@ -438,6 +478,11 @@ style="fill:#000000;transform: rotate(45deg);"><g fill="none" fill-rule="none" s
 
 				$('.search__header__close').click(function(){
 					$('.search__header').slideToggle();
+				});
+
+				$(".afisha__default__col__slide").mCustomScrollbar({
+					theme:"dark",
+					setHeight: 500
 				});
 
 		</script>

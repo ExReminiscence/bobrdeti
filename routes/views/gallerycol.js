@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Post = keystone.list('Post');
+var moment = require('moment');
 
 exports = module.exports = function (req, res) {
 
@@ -22,6 +23,24 @@ exports = module.exports = function (req, res) {
 
 			locals.othernewsmenu = results;
 
+			next(err);
+		});
+	});
+
+	view.query('afishaRubric', keystone.list('AfishaRubric').model.find().sort('name'));
+
+	view.on('init', function (next) {
+
+		var datenow = moment().format('YYYY-MM-DD');
+
+		var q = keystone.list('Post').model.find({
+			state: 'Опубликовать',
+			afisha: true,
+			meetDate: datenow
+		}).populate('sectionAfisha');
+
+		q.exec(function (err, results) {
+			locals.data.afishaIndex = results;
 			next(err);
 		});
 	});
