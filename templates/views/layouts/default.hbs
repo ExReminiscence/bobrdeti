@@ -229,13 +229,19 @@ style="fill:#000000;transform: rotate(45deg);"><g fill="none" fill-rule="none" s
 						</div>
 
 						<div class="col-lg-4 offset-lg-4 footer__right">
-							<div class="d-flex" style="align-items: center;margin-bottom:10px;">
+							<div class="d-flex" style="margin-bottom:10px;flex-direction: column;">
+								<!--
 								<div class="col-lg-2 col-md-2 col-sm-2 footer-right-img" style="padding:0"><img src="/img/mail.png" alt=""></div>
+
 								<div class="col-lg-10 col-md-10 col-sm-10" style="padding-right: 0; text-align: right;">
 									<h2 class="footer-right-name">Подписаться на новости</h2>
 								</div>
+							-->
+							<p style="color:#fff;font-size:13px;">Копирование разрешено при наличии гиперссылки на <a style="color: #febf14;" href="https://bobrdeti.by/">https://bobrdeti.by/</a> . Письменное уведомление или разрешение не требуется. Права на изображения принадлежат их авторам.</p>
+							<p style="color:#fff;font-size:13px;">Внимание! Вся предоставленная информация на тему «Здоровье» не может быть использована без обязательной консультации с врачом.</p>
+							<p style="color:#fff;font-size:13px;">Связаться с редакцией сайта: <a style="color: #febf14;" href="mailto:info@bobrdeti.by">info@bobrdeti.by</a></p>
 							</div>
-
+							<!--
 							<form class="d-flex" method="post">
 								<input type="hidden" name="action" value="subscription">
 								<div class="col-lg-7 col-sm-7 col-md-7" style="padding:0">
@@ -245,6 +251,7 @@ style="fill:#000000;transform: rotate(45deg);"><g fill="none" fill-rule="none" s
 									<button style="outline: none;border: none; width: 100%;" type="submit" href="#" class="footer-podpiskaObnov">Подписаться</button>
 								</div>
 							</form>
+						-->
 							<div class="social">
 								{{#each social}}
 								<div class="social__img"><a href="{{{address}}}"><img src="{{{image.secure_url}}}" style="width: 27px;height: 27px;" alt="{{{name}}}"></a></div>

@@ -7412,6 +7412,7 @@ footer {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 5px;
+  margin-top: 0;
 }
 .footer__rightInfo__title__line {
   border-top: 3px solid #febf14;
