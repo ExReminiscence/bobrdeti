@@ -270,7 +270,21 @@
                   {{#each data.category}}
 
                     <div class="articlePage__rubricsBlock__name__col">
-                      <a class="articlePage__rubricsBlock__name__col__link" href="/article/{{key}}"><span class="badge badge-icon articlePage__rubricsBlock__name__col__span">{{articlCount}}</span>{{name}}</a>
+                      <a class="articlePage__rubricsBlock__name__col__link" href="/article/{{key}}">
+                        <span class="badge badge-icon articlePage__rubricsBlock__name__col__span">{{articlCount}}</span>{{name}}</a>
+
+
+                        <div class="articlePage__rubricsBlock__name__col__subcategories">
+                          {{#each subcategories}}
+                          <li class="subcotegory__article__index__li" style="margin-top:10px;">
+                            <a class="subcotegory__article__index__link" href="{{subcategoryUrl ../key key}}">{{{name}}}</a>
+                          </li>
+                          {{/each}}
+                        </div>
+
+
+
+
                     </div>
 
                   {{/each}}
