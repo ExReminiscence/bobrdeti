@@ -7549,6 +7549,10 @@ header {
 .search__header__close {
   cursor: pointer;
   margin-right: 10px;
+  transition: all 300ms ease;
+}
+.search__header__close:hover {
+  transform: rotate(180deg);
 }
 .header-menu,
 .header-menu-articleMenu {
