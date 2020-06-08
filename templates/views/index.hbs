@@ -168,6 +168,17 @@
 
         </div>
         <div class="col-lg-12 afishaIndex">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- Блок на главной -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-6636788620742177"
+               data-ad-slot="8334847834"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
           <h2 class="articleName">Афиша мероприятий в Бобруйске на сегодня</h2>
           <div class="articleName__sub__container">
             <p class="articleName__sub">Всего мероприятий на сегодня - {{data.afishaIndex.length}}</p>
@@ -259,7 +270,21 @@
                   {{#each data.category}}
 
                     <div class="articlePage__rubricsBlock__name__col">
-                      <a class="articlePage__rubricsBlock__name__col__link" href="/article/{{key}}"><span class="badge badge-icon articlePage__rubricsBlock__name__col__span">{{articlCount}}</span>{{name}}</a>
+                      <a class="articlePage__rubricsBlock__name__col__link" href="/article/{{key}}">
+                        <span class="badge badge-icon articlePage__rubricsBlock__name__col__span">{{articlCount}}</span>{{name}}</a>
+
+
+                        <div class="articlePage__rubricsBlock__name__col__subcategories">
+                          {{#each subcategories}}
+                          <li class="subcotegory__article__index__li" style="margin-top:10px;">
+                            <a class="subcotegory__article__index__link" href="{{subcategoryUrl ../key key}}">{{{name}}}</a>
+                          </li>
+                          {{/each}}
+                        </div>
+
+
+
+
                     </div>
 
                   {{/each}}
@@ -307,5 +332,5 @@
 
         </div>
 
-        
+
     </section>

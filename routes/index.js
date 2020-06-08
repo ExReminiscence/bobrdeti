@@ -67,6 +67,10 @@ exports = module.exports = function (app) {
 	    res.type('text/plain');
 	    res.send("User-agent: *\nDisallow: /keystone/\nCrawl-delay: 3\nSitemap: https://bobrdeti.by/sitemap.xml");
 	});
+  app.get('/ads.txt', function (req, res) {
+	    res.type('text/plain');
+	    res.send("google.com, pub-6636788620742177, DIRECT, f08c47fec0942fa0");
+	});
 	app.all('/news/:category?', routes.views.blog);
 	app.all('/gallery', routes.views.gallery);
 	app.all('/gallery', routes.views.gallery);

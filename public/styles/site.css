@@ -6951,6 +6951,24 @@ a:focus {
   padding: 3px 7px;
   visible: visibility;
 }
+.articlePage__rubricsBlock__name__col__subcategories {
+  transition: all 500ms ease;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+}
+.articlePage__rubricsBlock__name__col:hover .articlePage__rubricsBlock__name__col__subcategories {
+  height: auto;
+  opacity: 1;
+}
+.subcotegory__article__index__li {
+  list-style: none;
+  margin-left: 50px;
+}
+.subcotegory__article__index__link {
+  color: #03a9f4;
+  font-size: 15px;
+}
 .afishaIndex__item {
   width: 266px;
   height: 220px;
@@ -7531,6 +7549,10 @@ header {
 .search__header__close {
   cursor: pointer;
   margin-right: 10px;
+  transition: all 300ms ease;
+}
+.search__header__close:hover {
+  transform: rotate(180deg);
 }
 .header-menu,
 .header-menu-articleMenu {
