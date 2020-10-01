@@ -41,7 +41,7 @@ exports = module.exports = function (req, res) {
 			state: 'Опубликовать',
 			afisha: true,
 			meetDate: {"$gte": datenow, "$lte": datenow}
-		}).populate('sectionAfisha');
+		}).sort('meetDate').populate('sectionAfisha');
 
 		q.exec(function (err, results) {
 			locals.data.afishaIndex = results;
@@ -159,7 +159,7 @@ exports = module.exports = function (req, res) {
 			filters: {
 				state: 'Опубликовать',
 				afisha: true,
-				meetDate: locals.filters.keywords
+				meetDate: {"$gte": locals.filters.keywords, "$lte": locals.filters.keywords}
 			},
 		})
 			.sort('meetDate')
