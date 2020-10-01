@@ -200,7 +200,7 @@ exports = module.exports = function (req, res) {
 			filters: {
 				state: 'Опубликовать',
 				afisha: true,
-				meetDate: {"$gte": datenow}
+				meetDate: {"$gte": datenow, "$lte": datenow}
 			}
 		})
 			.sort('meetDate')

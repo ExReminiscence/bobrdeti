@@ -76,9 +76,9 @@ exports = module.exports = function (req, res) {
 
 	});
 
-	view.on('init', function (next) {
+	 view.on('init', function (next) {
 		var q = Post.model.find().where('hotnews', true).sort('-publishedDate').where('state', 'Опубликовать').populate('rubrics').limit(1);
-		q.exec(function (err, results) {
+		 q.exec(function (err, results) {
 
 			locals.bignews = results;
 
