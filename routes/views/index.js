@@ -228,12 +228,15 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 
 		var datenow = moment().format('YYYY-MM-DD');
+		var massDate = [];
 
 		var q = keystone.list('Post').model.find({
 			state: 'Опубликовать',
 			afisha: true,
-			meetDate: datenow
-		}).populate('sectionAfisha');
+			meetDate: {"$gte": datenow, "$lte": datenow}
+		})
+		.populate('sectionAfisha');
+
 
 		q.exec(function (err, results) {
 			locals.data.afishaIndex = results;
