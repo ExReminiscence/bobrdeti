@@ -233,8 +233,9 @@ exports = module.exports = function (req, res) {
 		var q = keystone.list('Post').model.find({
 			state: 'Опубликовать',
 			afisha: true,
-			meetDate: {"$gte": datenow, "$lte": datenow}
+			meetDate: datenow
 		})
+		.sort('meetDate')
 		.populate('sectionAfisha');
 
 

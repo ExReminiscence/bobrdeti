@@ -40,7 +40,7 @@ exports = module.exports = function (req, res) {
 		var q = keystone.list('Post').model.find({
 			state: 'Опубликовать',
 			afisha: true,
-			meetDate: {"$gte": datenow, "$lte": datenow}
+			meetDate: datenow
 		}).sort('meetDate').populate('sectionAfisha');
 
 		q.exec(function (err, results) {
@@ -93,7 +93,6 @@ exports = module.exports = function (req, res) {
 			}
 
 			locals.data.afisharubrics = results;
-			console.log(results);
 			// Load the counts for each category
 			async.each(locals.data.afisharubrics, function (afisharubrics, next) {
 
@@ -159,7 +158,7 @@ exports = module.exports = function (req, res) {
 			filters: {
 				state: 'Опубликовать',
 				afisha: true,
-				meetDate: {"$gte": locals.filters.keywords, "$lte": locals.filters.keywords}
+				meetDate: locals.filters.keywords
 			},
 		})
 			.sort('meetDate')
