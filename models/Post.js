@@ -57,7 +57,13 @@ Post.add({
 	afishaType1: { label:'Досуг с детьми', type: Types.Boolean, dependsOn: { afisha: true } },
 	afishaType2: { label:'Выходные', type: Types.Boolean, dependsOn: { afisha: true } },
 	publishedDate: { label:'Дата публикации',type: Types.Date, default: Date.now, inputFormat: 'YYYY-MM-DD, H:mm', utc: false, initial: true },
-	meetDate: { label:'Дата проведения мероприятия',type: Types.DateArray, dependsOn: { usefull: false, afisha: true } },
+
+
+  afishaPeriud: { label:'Афиша с периодами', type: Types.Boolean, dependsOn: { afisha: true } },
+  afishaPostoyanno: { label:'Афиша постоянно', type: Types.Boolean, dependsOn: { afisha: true } },
+
+	meetDate: { label:'Дата проведения мероприятия',type: Types.DateArray, dependsOn: { usefull: false, afisha: true, afishaPeriud: true } },
+  meetDatePostoyanno: { label:'Дата проведения мероприятия',type: Types.DateArray, dependsOn: { usefull: false, afisha: true, afishaPostoyanno: true } },
 	image: { label:'Картинка',type: Types.CloudinaryImage, autoCleanup : true },
 	kratkoe: { label: 'Краткое описание', type: Types.Textarea, height:200, min: 0, max: 220	},
 	content: { label: 'Описание', type: Types.Html, wysiwyg: true,  height: 400	},
