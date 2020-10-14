@@ -41,14 +41,36 @@ exports = module.exports = function (req, res) {
 		var datenow = moment().format('YYYY-MM-DD');
 
 		var q = keystone.list('Post').model.find({
+				state: 'Опубликовать',
+				afisha: true,
+				meetDate: datenow
+		})
+			.sort('meetDate')
+			.populate('sectionAfisha');
+
+		var w = keystone.list('Post').model.find({
 			state: 'Опубликовать',
 			afisha: true,
-			meetDate: datenow
-		}).populate('sectionAfisha');
+			meetDatePostoyanno: {"$gte": datenow, "$lte": datenow}
+		})
+			.populate('sectionAfisha');
+
+		if (locals.data.afisharubric) {
+			console.log(locals.data.afisharubric);
+			q.where('sectionAfisha').in([locals.data.afisharubric]);
+			w.where('sectionAfisha').in([locals.data.afisharubric]);
+		}
 
 		q.exec(function (err, results) {
-			locals.data.afishaIndex = results;
-			next(err);
+			//locals.data.posts = results;
+			w.exec(function (error, res){
+				res.forEach((arr, i) => {
+					results.unshift(arr);
+				});
+				//console.log(results.results);
+				locals.data.afishaIndex = results
+				next(err);
+			})
 		});
 	});
 
@@ -199,29 +221,41 @@ exports = module.exports = function (req, res) {
 
 		var datenow = moment().format('YYYY-MM-DD');
 
-		var q = keystone.list('Post').paginate({
-			page: req.query.page || 1,
-			perPage: 32,
-			maxPages: 3,
-			filters: {
+		var q = keystone.list('Post').model.find({
 				state: 'Опубликовать',
 				afisha: true,
 				afishaType1: true,
 				meetDate: {"$gte": datenow}
-			},
 		})
 			.sort('meetDate')
 			.populate('sectionAfisha');
 
-			if (locals.data.afisharubric) {
-				q.where('sectionAfisha').in([locals.data.afisharubric]);
-			}
+		var w = keystone.list('Post').model.find({
+			state: 'Опубликовать',
+			afisha: true,
+			afishaType1: true,
+			meetDatePostoyanno: {"$gte": datenow, "$lte": datenow}
+		})
+			.populate('sectionAfisha');
 
+		if (locals.data.afisharubric) {
+			console.log(locals.data.afisharubric);
+			q.where('sectionAfisha').in([locals.data.afisharubric]);
+			w.where('sectionAfisha').in([locals.data.afisharubric]);
+		}
 
 		q.exec(function (err, results) {
-			locals.data.posts = results;
-			next(err);
+			//locals.data.posts = results;
+			w.exec(function (error, res){
+				res.forEach((arr, i) => {
+					results.unshift(arr);
+				});
+				//console.log(results.results);
+				locals.data.posts = results
+				next(err);
+			})
 		});
+
 	});
 
 	// Render the view
