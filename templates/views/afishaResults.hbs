@@ -23,11 +23,11 @@
                     </ul>
                 </div>
                 <div class="col-lg-12 afishaPage__content__posts d-flex">
-                  {{#if data.date.results}}
+                  {{#if data.date}}
                   <div class="findOnDate" >
                     <h5>Найдено по дате и в ближайшие дни</h5>
                   </div>
-                  {{#each data.date.results}}
+                  {{#each data.date}}
                   <div class=" afishaPage__content__posts__item ">
                         <div class="afishaPage__content__posts__item__img" style="background: url({{#if image.secure_url}}{{{image.secure_url}}}{{else}}/img/fonafisha.webp{{/if}}) center center no-repeat;background-size: cover;">
                           {{#if section}}
