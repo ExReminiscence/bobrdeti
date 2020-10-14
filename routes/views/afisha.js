@@ -208,7 +208,6 @@ exports = module.exports = function (req, res) {
 			afisha: true,
 			meetDatePostoyanno: {"$gte": datenow, "$lte": datenow}
 		})
-			.sort('meetDate')
 			.populate('sectionAfisha');
 
 		if (locals.data.afisharubric) {

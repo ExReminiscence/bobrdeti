@@ -150,30 +150,23 @@ exports = module.exports = function (req, res) {
 
 		locals.data.keywords = locals.filters.keywords;
 
-		var q = keystone.list('Post').model.find({
+		//search the full-text index
+		keystone.list('Post').paginate({
+			page: req.query.page || 1,
+			perPage: 100,
+			maxPages: 3,
+			filters: {
 				state: 'Опубликовать',
 				afisha: true,
 				meetDate: locals.filters.keywords
+			},
 		})
 			.sort('meetDate')
-			.populate('sectionAfisha');
+			.exec(function(error, results) {
 
-		var w = keystone.list('Post').model.find({
-			state: 'Опубликовать',
-			afisha: true,
-			meetDatePostoyanno: {"$gte": locals.filters.keywords, "$lte": locals.filters.keywords}
-		})
-			.sort('meetDate')
-			.populate('sectionAfisha');
+				 locals.data.date = results;
 
-		q.exec(function (err, results) {
-			w.exec(function (error, res){
-				res.forEach((arr, i) => {
-					results.unshift(arr);
-				});
-				locals.data.date = results
-				next(err);
-			})
+				next(error);
 		});
 
 
