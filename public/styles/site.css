@@ -8449,7 +8449,7 @@ li a:hover {
   width: 330px;
   padding-left: 15px;
   opacity: 0;
-  visible: hidden;
+  visibility: hidden;
   z-index: 0;
   transition: all 150ms ease;
 }
@@ -8481,7 +8481,7 @@ li a:hover {
 }
 .afishaPage__content__category__spis__li:hover .afishaPage__content__category__spis__a__sub {
   opacity: 1;
-  visible: visibility;
+  visibility: visible;
   z-index: 9;
 }
 @media only screen and (max-width: 768px) {
